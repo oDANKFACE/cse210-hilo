@@ -17,13 +17,23 @@ class Director:
         self.is_playing = True
         self.card = Card()
         self.score = 300
+        self.choice = ""
 
     def start_game(self):
+        print(f"Your score is: {self.score}")
         while self.is_playing:
-            pass
+            self.pose_card()
+            self.get_input()
+            self.do_updates()
+            self.do_outputs()
+
+    def pose_card(self):
+        print(f"The card is: {self.card.get_value()}")
 
     def get_input(self):
-        pass
+        self.choice = ""
+        while self.choice not in ("h", "l"):
+            self.choice = (input("Higher or lower? [h/l] ")).lower()
 
     def do_updates(self):
         pass
